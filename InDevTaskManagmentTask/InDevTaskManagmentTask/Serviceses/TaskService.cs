@@ -24,7 +24,7 @@ namespace InDevTaskManagmentTask.Serviceses
 
         public Task GetTask(int id)
         {
-            return this.Tasks.Where(m => m.Id == id).FirstOrDefault();
+            return this.Tasks.Where(modelset => modelset.Id == id).FirstOrDefault();
         }
 
         public void AddTask(Task item)
@@ -34,7 +34,7 @@ namespace InDevTaskManagmentTask.Serviceses
 
         public void UpdateTask(Task item)
         {
-            var taskset = this.Tasks.Where(m => m.Id == item.Id).FirstOrDefault();
+            var taskset = this.Tasks.Where(modelset => modelset.Id == item.Id).FirstOrDefault();
 
             taskset.TaskName = item.TaskName;
             taskset.ProjectMembers = item.ProjectMembers;
@@ -43,14 +43,14 @@ namespace InDevTaskManagmentTask.Serviceses
 
         public void DeleteTask(int id)
         {
-            var taskset = this.Tasks.Where(m => m.Id == id).FirstOrDefault();
+            var taskset = this.Tasks.Where(modelset => modelset.Id == id).FirstOrDefault();
 
             this.Tasks.Remove(taskset);
         }
 
         public bool TaskExists(int id)
         {
-            return this.Tasks.Any(m => m.Id == id);
+            return this.Tasks.Any(modelset => modelset.Id == id);
         }
     }
 }
